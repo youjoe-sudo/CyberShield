@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberShield - كن درعك الرقمي</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+    
+    <nav class="navbar">
+        <div class="nav-overlay" id="nav-overlay"></div>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>CyberShield</span>
+            </div>
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="/" class="active">الرئيسية</a>
+                <a href="/lessons">الدروس</a>
+                <a href="/quiz">الاختبارات</a>
+                <div id="auth-buttons">
+                    <a href="/login" class="btn-login">تسجيل الدخول</a>
+                    <a href="/register" class="btn-register">حساب جديد</a>
+                </div>
+                <div id="user-menu" style="display: none;">
+                    <a href="/profile" class="btn-profile" style="margin-left: 10px;">
+                        <i class="fas fa-user"></i>
+                        <span id="user-name"></span>
+                    </a>
+                    <button id="logout-btn" class="btn-logout">تسجيل الخروج</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content animate__animated animate__fadeInUp">
+                    <h1 class="hero-title">
+                        <span class="gradient-text">كن درعك الرقمي</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        منصة تفاعلية لتعليم الأمن السيبراني وحماية البيانات الشخصية
+                        <br>للأطفال والمراهقين من سن 12 إلى 18 سنة
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="/lessons" class="btn btn-primary animate__animated animate__pulse animate__infinite">
+                            <i class="fas fa-graduation-cap"></i>
+                            ابدأ التعلم
+                        </a>
+                        <a href="/quiz" class="btn btn-secondary">
+                            <i class="fas fa-brain"></i>
+                            اختبر نفسك
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image animate__animated animate__fadeInRight">
+                    <div class="shield-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container">
+                <h2 class="section-title">لماذا CyberShield؟</h2>
+                <div class="features-grid">
+                    <div class="feature-card animate__animated">
+                        <div class="feature-icon">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <h3>حماية الحسابات</h3>
+                        <p>تعلم كيفية حماية حساباتك وكلمات المرور من الاختراق</p>
+                    </div>
+                    <div class="feature-card animate__animated">
+                        <div class="feature-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3>التعامل مع الروابط</h3>
+                        <p>تعرف على كيفية التعامل مع الروابط المشبوهة والضارة</p>
+                    </div>
+                    <div class="feature-card animate__animated">
+                        <div class="feature-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <h3>الشبكات العامة</h3>
+                        <p>تعلم الأمن أثناء استخدام الشبكات العامة</p>
+                    </div>
+                    <div class="feature-card animate__animated">
+                        <div class="feature-icon">
+                            <i class="fas fa-ban"></i>
+                        </div>
+                        <h3>مكافحة الشائعات</h3>
+                        <p>تعلم كيفية التعرف على الشائعات ومكافحتها</p>
+                    </div>
+                    <div class="feature-card animate__animated">
+                        <div class="feature-icon">
+                            <i class="fas fa-gamepad"></i>
+                        </div>
+                        <h3>تعلم تفاعلي</h3>
+                        <p>دروس وألعاب تفاعلية تجعل التعلم ممتعاً</p>
+                    </div>
+                    <div class="feature-card animate__animated">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>نقاط وميداليات</h3>
+                        <p>احصل على نقاط وميداليات أثناء التعلم</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3 id="users-count">0</h3>
+                        <p>مستخدم نشط</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-book"></i>
+                        <h3 id="lessons-count">0</h3>
+                        <p>درس تعليمي</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-question-circle"></i>
+                        <h3 id="quiz-count">0</h3>
+                        <p>سؤال تفاعلي</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-star"></i>
+                        <h3 id="scores-count">0</h3>
+                        <p>نتيجة اختبار</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 CyberShield. جميع الحقوق محفوظة.</p>
+            <p>منصة تعليمية للأمن السيبراني</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
+

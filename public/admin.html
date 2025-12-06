@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم - CyberShield</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+
+    <nav class="navbar">
+        <div class="nav-overlay" id="nav-overlay"></div>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>CyberShield</span>
+            </div>
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="/">الرئيسية</a>
+                <a href="/lessons">الدروس</a>
+                <a href="/quiz">الاختبارات</a>
+                <a href="/admin" class="active">لوحة التحكم</a>
+                <div id="user-menu">
+                    <span id="user-name"></span>
+                    <button id="logout-btn" class="btn-logout">تسجيل الخروج</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="admin-page">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">
+                    <i class="fas fa-cog"></i>
+                    لوحة التحكم
+                </h1>
+            </div>
+
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="lessons">
+                    <i class="fas fa-book"></i>
+                    إدارة الدروس
+                </button>
+                <button class="tab-btn" data-tab="quiz">
+                    <i class="fas fa-question-circle"></i>
+                    إدارة الكويزات
+                </button>
+                <button class="tab-btn" data-tab="scores">
+                    <i class="fas fa-chart-line"></i>
+                    متابعة النتائج
+                </button>
+                <button class="tab-btn" data-tab="users">
+                    <i class="fas fa-users"></i>
+                    المستخدمون
+                </button>
+            </div>
+
+            <!-- تبويب الدروس -->
+            <div id="lessons-tab" class="tab-content active">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h2>الدروس</h2>
+                        <button class="btn btn-primary" id="add-lesson-btn">
+                            <i class="fas fa-plus"></i>
+                            إضافة درس جديد
+                        </button>
+                    </div>
+                    <div id="lessons-list" class="admin-list">
+                        <!-- قائمة الدروس -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- تبويب الكويزات -->
+            <div id="quiz-tab" class="tab-content">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h2>الكويزات</h2>
+                        <button class="btn btn-primary" id="add-quiz-btn">
+                            <i class="fas fa-plus"></i>
+                            إضافة كويز جديد
+                        </button>
+                        <button class="btn btn-secondary" id="add-question-btn">
+                            <i class="fas fa-plus"></i>
+                            إضافة سؤال
+                        </button>
+                    </div>
+                    <div id="quizzes-list" class="admin-list">
+                        <!-- قائمة الكويزات -->
+                    </div>
+                    <div id="questions-list" class="admin-list" style="margin-top: 30px;">
+                        <h3 style="margin-bottom: 20px; color: var(--neon-green);">الأسئلة</h3>
+                        <!-- قائمة الأسئلة -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- تبويب النتائج -->
+            <div id="scores-tab" class="tab-content">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h2>متابعة النتائج</h2>
+                    </div>
+                    <div id="scores-list" class="admin-list">
+                        <!-- قائمة النتائج -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- تبويب المستخدمين -->
+            <div id="users-tab" class="tab-content">
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h2>المستخدمون</h2>
+                    </div>
+                    <div id="users-list" class="admin-list">
+                        <!-- قائمة المستخدمين -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal لإضافة/تعديل درس -->
+    <div id="lesson-modal" class="modal">
+        <div class="modal-content large">
+            <span class="close-modal">&times;</span>
+            <h2 id="lesson-modal-title">إضافة درس جديد</h2>
+            <form id="lesson-form">
+                <input type="hidden" id="lesson-id">
+                <div class="form-group">
+                    <label>عنوان الدرس</label>
+                    <input type="text" id="lesson-title" required>
+                </div>
+                <div class="form-group">
+                    <label>الوصف</label>
+                    <textarea id="lesson-description" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>المحتوى</label>
+                    <textarea id="lesson-content" rows="10" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>رابط الصورة</label>
+                    <input type="url" id="lesson-image">
+                </div>
+                <div class="form-group">
+                    <label>رابط الفيديو</label>
+                    <input type="url" id="lesson-video">
+                </div>
+                <div class="form-group">
+                    <label>رابط الصوت</label>
+                    <input type="url" id="lesson-audio">
+                </div>
+                <div class="form-group">
+                    <label>الفئة</label>
+                    <select id="lesson-category" required>
+                        <option value="حماية الحسابات">حماية الحسابات</option>
+                        <option value="كلمات المرور">كلمات المرور</option>
+                        <option value="الروابط المشبوهة">الروابط المشبوهة</option>
+                        <option value="الشبكات العامة">الشبكات العامة</option>
+                        <option value="مكافحة الشائعات">مكافحة الشائعات</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="lesson-isPremium" style="width: auto; margin-left: 10px;">
+                        درس مميز (للمستخدمين المسجلين فقط)
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">حفظ</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-lesson-btn">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal لإضافة/تعديل كويز -->
+    <div id="quiz-modal" class="modal">
+        <div class="modal-content large">
+            <span class="close-modal">&times;</span>
+            <h2 id="quiz-modal-title">إضافة كويز جديد</h2>
+            <form id="quiz-form">
+                <input type="hidden" id="quiz-id">
+                <div class="form-group">
+                    <label>عنوان الكويز</label>
+                    <input type="text" id="quiz-title" required>
+                </div>
+                <div class="form-group">
+                    <label>الوصف</label>
+                    <textarea id="quiz-description" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>عدد الأسئلة</label>
+                    <input type="number" id="quiz-question-count" min="1" value="10">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">حفظ</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-quiz-btn">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal لإضافة/تعديل سؤال -->
+    <div id="question-modal" class="modal">
+        <div class="modal-content large">
+            <span class="close-modal">&times;</span>
+            <h2 id="question-modal-title">إضافة سؤال جديد</h2>
+            <form id="question-form">
+                <input type="hidden" id="question-id">
+                <div class="form-group">
+                    <label>السؤال</label>
+                    <textarea id="question-text" rows="3" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>الخيار 1</label>
+                    <input type="text" id="option1" required>
+                </div>
+                <div class="form-group">
+                    <label>الخيار 2</label>
+                    <input type="text" id="option2" required>
+                </div>
+                <div class="form-group">
+                    <label>الخيار 3</label>
+                    <input type="text" id="option3" required>
+                </div>
+                <div class="form-group">
+                    <label>الخيار 4</label>
+                    <input type="text" id="option4" required>
+                </div>
+                <div class="form-group">
+                    <label>الإجابة الصحيحة</label>
+                    <select id="correct-answer" required>
+                        <option value="1">الخيار 1</option>
+                        <option value="2">الخيار 2</option>
+                        <option value="3">الخيار 3</option>
+                        <option value="4">الخيار 4</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>التفسير (اختياري)</label>
+                    <textarea id="question-explanation" rows="2"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>الكويز</label>
+                    <select id="question-quiz-id">
+                        <option value="">كويز عام (قديم)</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">حفظ</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-question-btn">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+

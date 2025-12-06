@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الاختبارات - CyberShield</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+
+    <nav class="navbar">
+        <div class="nav-overlay" id="nav-overlay"></div>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>CyberShield</span>
+            </div>
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="/">الرئيسية</a>
+                <a href="/lessons">الدروس</a>
+                <a href="/quiz" class="active">الاختبارات</a>
+                <div id="auth-buttons">
+                    <a href="/login" class="btn-login">تسجيل الدخول</a>
+                </div>
+                <div id="user-menu" style="display: none;">
+                    <a href="/profile" class="btn-profile" style="margin-left: 10px;">
+                        <i class="fas fa-user"></i>
+                        <span id="user-name"></span>
+                    </a>
+                    <button id="logout-btn" class="btn-logout">تسجيل الخروج</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="quiz-page">
+        <div class="container">
+            <!-- شاشة البداية -->
+            <div id="quiz-start" class="quiz-start">
+                <div class="quiz-header">
+                    <h1 class="page-title">
+                        <i class="fas fa-brain"></i>
+                        اختبر معرفتك
+                    </h1>
+                    <p>اختبر معلوماتك في الأمن السيبراني وحماية البيانات</p>
+                </div>
+                <div class="quiz-info-card">
+                    <div class="info-item">
+                        <i class="fas fa-question-circle"></i>
+                        <span id="total-questions">10</span> سؤال
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span>15</span> دقيقة
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-trophy"></i>
+                        احصل على نقاط
+                    </div>
+                </div>
+                <button id="start-quiz-btn" class="btn btn-primary btn-large">
+                    <i class="fas fa-play"></i>
+                    ابدأ الاختبار
+                </button>
+            </div>
+
+            <!-- شاشة الاختبار -->
+            <div id="quiz-container" class="quiz-container" style="display: none;">
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <div class="progress-text">
+                        <span id="current-question">1</span> / <span id="total-questions-display">10</span>
+                    </div>
+                </div>
+
+                <div id="question-container" class="question-container">
+                    <!-- سيتم تحميل الأسئلة هنا -->
+                </div>
+
+                <div class="quiz-actions">
+                    <button id="prev-btn" class="btn btn-secondary" style="display: none;">
+                        <i class="fas fa-arrow-right"></i>
+                        السابق
+                    </button>
+                    <button id="next-btn" class="btn btn-primary">
+                        التالي
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <button id="submit-quiz-btn" class="btn btn-success" style="display: none;">
+                        <i class="fas fa-check"></i>
+                        إنهاء الاختبار
+                    </button>
+                </div>
+            </div>
+
+            <!-- شاشة النتائج -->
+            <div id="quiz-results" class="quiz-results" style="display: none;">
+                <div class="results-card">
+                    <div class="results-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <h2>نتيجة الاختبار</h2>
+                    <div class="score-display">
+                        <span id="score-percentage">0</span>%
+                    </div>
+                    <div class="score-details">
+                        <p>الإجابات الصحيحة: <span id="correct-answers">0</span></p>
+                        <p>الإجابات الخاطئة: <span id="wrong-answers">0</span></p>
+                    </div>
+                    <div id="result-message" class="result-message"></div>
+                    <div class="results-actions">
+                        <button id="retry-btn" class="btn btn-primary">
+                            <i class="fas fa-redo"></i>
+                            إعادة المحاولة
+                        </button>
+                        <a href="/lessons" class="btn btn-secondary">
+                            <i class="fas fa-book"></i>
+                            العودة للدروس
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/quiz.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+

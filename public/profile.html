@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي - CyberShield</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="stars2"></div>
+    <div class="stars3"></div>
+
+    <nav class="navbar">
+        <div class="nav-overlay" id="nav-overlay"></div>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>CyberShield</span>
+            </div>
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-links" id="nav-links">
+                <a href="/">الرئيسية</a>
+                <a href="/lessons">الدروس</a>
+                <a href="/quiz">الاختبارات</a>
+                <a href="/profile" class="active">الملف الشخصي</a>
+                <div id="user-menu">
+                    <span id="user-name"></span>
+                    <button id="logout-btn" class="btn-logout">تسجيل الخروج</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="profile-page">
+        <div class="container">
+            <div class="page-header">
+                <h1 class="page-title">
+                    <i class="fas fa-user-circle"></i>
+                    الملف الشخصي
+                </h1>
+            </div>
+
+            <div class="profile-content">
+                <!-- معلومات المستخدم -->
+                <div class="profile-card">
+                    <div class="profile-header">
+                        <div class="profile-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="profile-info">
+                            <h2 id="profile-name">جاري التحميل...</h2>
+                            <p id="profile-email"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- النقاط والميداليات -->
+                <div class="profile-card">
+                    <h3 class="card-title">
+                        <i class="fas fa-star"></i>
+                        النقاط والميداليات
+                    </h3>
+                    <div class="points-display">
+                        <div class="points-value">
+                            <i class="fas fa-coins"></i>
+                            <span id="total-points">0</span>
+                            <span class="points-label">نقطة</span>
+                        </div>
+                    </div>
+                    <div class="badges-section">
+                        <h4>الميداليات</h4>
+                        <div id="badges-container" class="badges-grid">
+                            <!-- سيتم تحميل الميداليات هنا -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- الإحصائيات -->
+                <div class="profile-card">
+                    <h3 class="card-title">
+                        <i class="fas fa-chart-bar"></i>
+                        الإحصائيات
+                    </h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <i class="fas fa-book"></i>
+                            <span class="stat-value" id="completed-lessons">0</span>
+                            <span class="stat-label">درس مكتمل</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-brain"></i>
+                            <span class="stat-value" id="completed-quizzes">0</span>
+                            <span class="stat-label">اختبار مكتمل</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-trophy"></i>
+                            <span class="stat-value" id="best-score">0</span>
+                            <span class="stat-label">أفضل نتيجة</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-medal"></i>
+                            <span class="stat-value" id="total-badges">0</span>
+                            <span class="stat-label">ميدالية</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- لوحة المتصدرين -->
+                <div class="profile-card">
+                    <h3 class="card-title">
+                        <i class="fas fa-trophy"></i>
+                        لوحة المتصدرين
+                    </h3>
+                    <div id="leaderboard-container">
+                        <!-- سيتم تحميل المتصدرين هنا -->
+                    </div>
+                </div>
+
+                <!-- الملاحظات الشخصية -->
+                <div class="profile-card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                            <i class="fas fa-sticky-note"></i>
+                            الملاحظات الشخصية
+                        </h3>
+                        <button class="btn btn-primary btn-small" id="add-note-btn">
+                            <i class="fas fa-plus"></i>
+                            إضافة ملاحظة
+                        </button>
+                    </div>
+                    <div id="notes-container" class="notes-list">
+                        <!-- سيتم تحميل الملاحظات هنا -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal لإضافة/تعديل ملاحظة -->
+    <div id="note-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="note-modal-title">إضافة ملاحظة</h2>
+            <form id="note-form">
+                <input type="hidden" id="note-id">
+                <div class="form-group">
+                    <label>عنوان الملاحظة</label>
+                    <input type="text" id="note-title" required>
+                </div>
+                <div class="form-group">
+                    <label>المحتوى</label>
+                    <textarea id="note-content" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label>الدرس (اختياري)</label>
+                    <input type="text" id="note-lesson" placeholder="رقم أو عنوان الدرس">
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">حفظ</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-note-btn">إلغاء</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/profile.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
+
